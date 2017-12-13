@@ -77,8 +77,8 @@ try {
 
         console.log("= Conversion Request =");
 
-        let width = 1000;
-        let height = 1000;
+        let width = null;
+        let height = null;
 
         try {
             var form = new formidable.IncomingForm();
@@ -108,7 +108,12 @@ try {
                         oldpath,
                         files.convertfile.name
                     );
-                    console.dir(req.params);
+                    let mode = "cropcentre";
+
+                    if (width == null || height == null) {
+                        mode = "bareconvert";
+                    }
+
                     testConvert.convertFileToPNG(width,height,"png","cropcentre").then(function(result) {
                       console.log("Promise active: ");
                       console.dir(result);
