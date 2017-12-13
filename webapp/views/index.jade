@@ -1,0 +1,22 @@
+html
+    head
+        title Image Conversion
+        link(rel='stylesheet' href='/build/index.css?1')
+
+    body
+        div(class='heading')
+            div(class='heading--title')
+                | Image conversion service
+        div(data-id='boom' class='container')
+            p.
+                Select your EPS, JPG, SVG, PDF file and export it to a hi-resolution PNG file.
+            div.
+                Please choose your file
+
+            form(action='/convert' method='post' enctype='multipart/form-data')
+                input(type='file' id='convertfile' name='convertfile' class='form--file')
+                label(for='convertfile' class='form--label') Click to choose file
+                input(type='number' class='entry--item' name='width' length='5')
+                | x 
+                input(type='number' class='entry--item' name='height' length='5')
+                input(type='submit' class='form--button')

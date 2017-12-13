@@ -1,0 +1,12 @@
+language: node_js
+services:
+  - docker
+node_js:
+  - "stable"
+before_install:
+  - sudo apt-get install -y imagemagick libmagick++-dev node-gyp curl
+  - export PATH=$PATH:/opt/ImageMagick/bin
+  - npm install
+
+script:
+  - npm run test
