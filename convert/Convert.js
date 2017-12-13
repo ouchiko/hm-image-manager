@@ -87,6 +87,7 @@ class Convert
                     if (err) {
                         reject({
                             error:"Error in process of conversion",
+                            err: err,
                             sendto:"process_error"
                         });
                     } else {
