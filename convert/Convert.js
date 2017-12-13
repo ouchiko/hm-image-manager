@@ -81,12 +81,6 @@ class Convert
                     sendto: "file_invalid"
                 });
             }
-            if (!width || !height) {
-                reject({
-                    error: "Invalid dimensions",
-                    sendto: "dimensions_invalid"
-                });
-            }
             im.convert(
                 this.options,
                 (err, stdout) => {
