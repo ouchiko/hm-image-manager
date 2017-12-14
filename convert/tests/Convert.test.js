@@ -34,7 +34,7 @@ test('Invalid file sent', () => {
     );
 
     expect.assertions(1);
-    return expect(testConvert.convertFileToPNG()).rejects.toEqual({
+    return expect(testConvert.convertFileToPNG(1000,1000,"png", "cropcentre")).rejects.toEqual({
         error: "Invalid file",
         sendto: "file_invalid"
     });

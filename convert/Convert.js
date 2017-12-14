@@ -63,6 +63,7 @@ class Convert
      */
     convertFileToPNG(width, height, format, type_of_conversion)
     {
+
         switch (type_of_conversion) {
             case "cropcentre":
                 this.options = this.resizeAndCrop(width,height,format);
@@ -75,6 +76,9 @@ class Convert
                 break;
         }
         return new Promise((resolve, reject) => {
+            if (!width && !height) {
+                reject({"error": "Invalid dimensions", "sendto": "dimensions_invalid"});
+            }
             if (!this.isValidFile()) {
                 reject({
                     error: "Invalid file",
@@ -87,7 +91,6 @@ class Convert
                     if (err) {
                         reject({
                             error:"Error in process of conversion",
-                            err: err,
                             sendto:"process_error"
                         });
                     } else {
